@@ -12,5 +12,4 @@ public class DtoMasaIcerikIU {
     private DtoUrun urun;
 
     private Long urunAdet;
-
 }

@@ -11,7 +11,7 @@ public interface IMasaService {
 
     public List<DtoMasa> getAllMasa();
 
-    public DtoMasa postMasa (DtoMasaIU dtoMasaIU);
+    public DtoMasa postMasa(DtoMasaIU dtoMasaIU);
 
     public DtoMasa getMasa(String id);
 
@@ -19,5 +19,7 @@ public interface IMasaService {
 
     public DtoMasa postMasaUrunEkle(String masaId, DtoMasaIcerikIU dtoMasaUrunEkle);
 
-    public DtoMasa putMasaUrunSil(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSil);
+    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSilList);
+
+    public void putMasaBosalt(String masaId);
 }

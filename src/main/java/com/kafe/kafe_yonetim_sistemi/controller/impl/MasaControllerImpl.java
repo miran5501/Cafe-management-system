@@ -20,50 +20,53 @@ import com.kafe.kafe_yonetim_sistemi.service.impl.MasaServiceImpl;
 
 @RestController
 @RequestMapping("/api/masa")
-public class MasaControllerImpl implements IMasaController{
+public class MasaControllerImpl implements IMasaController {
 
     @Autowired
     private MasaServiceImpl masaService;
 
-    @GetMapping(path="/getir")
+    @GetMapping(path = "/getir")
     @Override
     public List<DtoMasa> getAllMasa() {
         return masaService.getAllMasa();
     }
 
-    @GetMapping(path="/getir/{id}")
+    @GetMapping(path = "/getir/{id}")
     @Override
-    public DtoMasa getMasa(@PathVariable(name="id") String id) {
+    public DtoMasa getMasa(@PathVariable(name = "id") String id) {
         return masaService.getMasa(id);
     }
 
-    @PostMapping(path="/kaydet")
+    @PostMapping(path = "/kaydet")
     @Override
     public DtoMasa postMasa(@RequestBody DtoMasaIU dtoMasaIU) {
         return masaService.postMasa(dtoMasaIU);
     }
 
-    @PutMapping(path="/{id}/guncelle")
+    @PutMapping(path = "/guncelle/{id}")
     @Override
     public DtoMasa putMasaGuncelle(@PathVariable(name = "id") String masaId, @RequestBody DtoMasaGuncelle dtoMasaGuncelle) {
         return masaService.putMasaGuncelle(masaId, dtoMasaGuncelle);
     }
 
-    @PostMapping(path="/{masaid}/urun-ekle")
+    @PostMapping(path = "/urun-ekle/{masaid}")
     @Override
-    public DtoMasa postMasaUrunEkle(@PathVariable(name="masaid") String masaId,@RequestBody DtoMasaIcerikIU dtoMasaUrunEkle) {
+    public DtoMasa postMasaUrunEkle(@PathVariable(name = "masaid") String masaId, @RequestBody DtoMasaIcerikIU dtoMasaUrunEkle) {
         return masaService.postMasaUrunEkle(masaId, dtoMasaUrunEkle);
     }
 
-    @PutMapping(path="/{masaid}/urun-sil")
+    @PutMapping(path = "/urun-ode/{masaid}")
     @Override
-    public DtoMasa putMasaUrunSil(@PathVariable(name="masaid") String masaId,@RequestBody List<DtoMasaIcerikIU> dtoMasaUrunSil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteMasaUrunSil'");
+    public DtoMasa putMasaUrunOde(@PathVariable(name = "masaid") String masaId, @RequestBody List<DtoMasaIcerikIU> dtoMasaUrunSilList) {
+        return masaService.putMasaUrunOde(masaId, dtoMasaUrunSilList);
+    }
+
+    @PutMapping(path="/bosalt/{id}")
+    @Override
+    public void putMasaBosalt(@PathVariable(name="id") String masaId) {
+        masaService.putMasaBosalt(masaId);
     }
 
     
-
-
 
 }

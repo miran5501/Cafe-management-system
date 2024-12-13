@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DtoMasaIcerik {
 
+    private String id;
+    
     private DtoUrun urun;
 
     private Long urunAdet;
@@ -18,4 +20,6 @@ public class DtoMasaIcerik {
     private Date urunEklenmeTarihi;
 
     private Date urunKaldirilmaTarihi;
+
+    private boolean odenmeDurumu;
 }

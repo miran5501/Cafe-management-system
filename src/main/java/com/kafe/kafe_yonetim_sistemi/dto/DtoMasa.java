@@ -1,5 +1,6 @@
 package com.kafe.kafe_yonetim_sistemi.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +19,8 @@ public class DtoMasa {
     private String masaAdi;
 
     private boolean masaDurumu;
+
+    private Date masaMusteriGelmeTarihi;
 
     private List<DtoMasaIcerik> masaIcerikList;
 }

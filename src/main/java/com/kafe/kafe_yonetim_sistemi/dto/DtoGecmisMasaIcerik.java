@@ -1,7 +1,8 @@
 package com.kafe.kafe_yonetim_sistemi.dto;
 
-import java.math.BigDecimal;
 import java.util.Date;
+
+import com.kafe.kafe_yonetim_sistemi.entities.Urun;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,17 +11,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DtoGecmisIslemler {
+public class DtoGecmisMasaIcerik {
 
     private String id;
 
-    private Long adet;
-
-    private BigDecimal tutar;
+    private Urun urun;
 
     private Date urunEklenmeTarihi;
 
-    private DtoUrun urun;
+    private Long urunAdet;
 
-    private DtoGecmisIslemlerMasa gecmisIslemlerMasa;
+    private Date urunKaldirilmaTarihi;
+
+    private boolean odenmeDurumu;
 }

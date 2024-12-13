@@ -9,10 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
-public class MasaIcerik {
+@Data
+public class GecmisMasaIcerik {
 
     @Id
     private String id;

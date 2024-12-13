@@ -19,5 +19,7 @@ public interface IMasaController {
 
     public DtoMasa postMasaUrunEkle(String masaId, DtoMasaIcerikIU dtoMasaUrunEkle);
 
-    public DtoMasa putMasaUrunSil(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSil);
+    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSilList);
+
+    public void putMasaBosalt(String masaId);
 }

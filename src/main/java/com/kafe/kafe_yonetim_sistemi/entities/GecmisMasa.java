@@ -1,5 +1,6 @@
 package com.kafe.kafe_yonetim_sistemi.entities;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -11,33 +12,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection = "masa") // MongoDB'deki koleksiyon adı
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Masa {
+@Document(collection = "gecmis_masa")
+public class GecmisMasa {
 
     @Id
     private String id;
 
-    @Field("alan_id")
-    private String alanId;
+    @Field(name="masa_id")
+    private String masaId;
 
-    @Field(name = "masa_adi")
-    private String masaAdi;
-
-    @Field(name = "olusturulma_tarihi")
-    private Date olusturulmaTarihi;
-
-    @Field(name = "son_guncelleme_tarihi")
-    private Date sonGuncellemeTarihi;
+    @Field(name="toplam_tutar")
+    private BigDecimal toplamTutar;
 
     @Field(name="masa_musteri_gelme_tarihi")
     private Date masaMusteriGelmeTarihi;
 
-    @Field(name = "masa_durumu")
-    private boolean masaDurumu;
+    @Field(name="masa_musteri_gitme_tarihi")
+    private Date masaMusteriGitmeTarihi;
 
-    @Field(name="masa_icerik")
-    private List<MasaIcerik> masaIcerikList;
+    @Field(name="gecmis_masa_icerik")
+    private List<GecmisMasaIcerik> gecmisMasaIcerikList;
 }

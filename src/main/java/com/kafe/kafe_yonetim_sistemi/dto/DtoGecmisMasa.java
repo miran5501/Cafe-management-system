@@ -10,15 +10,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DtoGecmisIslemlerMasa {
+public class DtoGecmisMasa {
 
     private String id;
 
-    private Date musteriGelmeTarihi;
+    private String masaId;
 
-    private Date musteriGitmeTarihi;
+    private BigDecimal toplamTutar;
 
-    private BigDecimal tutar;
+    private Date masaMusteriGelmeTarihi;
 
-    private DtoMasa masa;
+    private Date masaMusteriGitmeTarihi;
 }

@@ -1,5 +1,6 @@
 package com.kafe.kafe_yonetim_sistemi.service.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,16 +17,19 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerik;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikIU;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoUrun;
 import com.kafe.kafe_yonetim_sistemi.entities.Alan;
+import com.kafe.kafe_yonetim_sistemi.entities.GecmisMasa;
+import com.kafe.kafe_yonetim_sistemi.entities.GecmisMasaIcerik;
 import com.kafe.kafe_yonetim_sistemi.entities.Masa;
 import com.kafe.kafe_yonetim_sistemi.entities.MasaIcerik;
 import com.kafe.kafe_yonetim_sistemi.entities.Urun;
 import com.kafe.kafe_yonetim_sistemi.repository.AlanRepository;
+import com.kafe.kafe_yonetim_sistemi.repository.GecmisMasaRepository;
 import com.kafe.kafe_yonetim_sistemi.repository.MasaRepository;
 import com.kafe.kafe_yonetim_sistemi.repository.UrunRepository;
 import com.kafe.kafe_yonetim_sistemi.service.IMasaService;
 
 @Service
-public class MasaServiceImpl implements IMasaService{
+public class MasaServiceImpl implements IMasaService {
 
     @Autowired
     private MasaRepository masaRepository;
@@ -36,14 +40,29 @@ public class MasaServiceImpl implements IMasaService{
     @Autowired
     private UrunRepository urunRepository;
 
+    @Autowired
+    private GecmisMasaRepository gecmisMasaRepository;
+
     @Override
     public List<DtoMasa> getAllMasa() {
-        List<DtoMasa> dtoMasaList=new ArrayList<>();
+        List<DtoMasa> dtoMasaList = new ArrayList<>();
         List<Masa> masaList = masaRepository.findAll();
-        if(masaList!=null && !masaList.isEmpty()){
+        if (masaList != null && !masaList.isEmpty()) {
             for (Masa masa : masaList) {
-                DtoMasa dtoMasa= new DtoMasa();
+                DtoMasa dtoMasa = new DtoMasa();
+                List<MasaIcerik> masaIcerikList = masa.getMasaIcerikList();
+                List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
+                for (MasaIcerik masaIcerik : masaIcerikList) {
+                    DtoUrun dtoUrun = new DtoUrun();
+                    DtoMasaIcerik dtoMasaIcerik = new DtoMasaIcerik();
+                    Urun urun = masaIcerik.getUrun();
+                    BeanUtils.copyProperties(urun, dtoUrun);
+                    BeanUtils.copyProperties(masaIcerik, dtoMasaIcerik);
+                    dtoMasaIcerik.setUrun(dtoUrun);
+                    dtoMasaIcerikList.add(dtoMasaIcerik);
+                }
                 BeanUtils.copyProperties(masa, dtoMasa);
+                dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
                 dtoMasaList.add(dtoMasa);
             }
             return dtoMasaList;
@@ -53,21 +72,21 @@ public class MasaServiceImpl implements IMasaService{
 
     @Override
     public DtoMasa getMasa(String id) {
-        Optional<Masa> optionalmasa=masaRepository.findById(id);
-        if(optionalmasa.isPresent()){
-            Masa masa=optionalmasa.get();
-            List<MasaIcerik> masaIcerikList= masa.getMasaIcerikList();
+        Optional<Masa> optionalmasa = masaRepository.findById(id);
+        if (optionalmasa.isPresent()) {
+            Masa masa = optionalmasa.get();
+            List<MasaIcerik> masaIcerikList = masa.getMasaIcerikList();
             List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
             for (MasaIcerik masaIcerik : masaIcerikList) {
-                DtoUrun dtoUrun=new DtoUrun();
-                DtoMasaIcerik dtoMasaIcerik=new DtoMasaIcerik();
-                Urun urun=masaIcerik.getUrun();
+                DtoUrun dtoUrun = new DtoUrun();
+                DtoMasaIcerik dtoMasaIcerik = new DtoMasaIcerik();
+                Urun urun = masaIcerik.getUrun();
                 BeanUtils.copyProperties(urun, dtoUrun);
                 BeanUtils.copyProperties(masaIcerik, dtoMasaIcerik);
                 dtoMasaIcerik.setUrun(dtoUrun);
                 dtoMasaIcerikList.add(dtoMasaIcerik);
             }
-            DtoMasa dtoMasa=new DtoMasa();
+            DtoMasa dtoMasa = new DtoMasa();
             BeanUtils.copyProperties(masa, dtoMasa);
             dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
             return dtoMasa;
@@ -102,19 +121,18 @@ public class MasaServiceImpl implements IMasaService{
         return dtoMasa;
     }
 
-
     @Override
     public DtoMasa putMasaGuncelle(String masaId, DtoMasaGuncelle dtoMasaGuncelle) {
         Optional<Masa> optionalmasa = masaRepository.findById(masaId);
-        Optional<Alan> optionalalan= alanRepository.findById(dtoMasaGuncelle.getAlanId());
+        Optional<Alan> optionalalan = alanRepository.findById(dtoMasaGuncelle.getAlanId());
         DtoMasa dtoMasa = new DtoMasa();
-        if(!optionalmasa.isEmpty() && !optionalalan.isEmpty()){
-            Masa dbMasa=optionalmasa.get();
+        if (!optionalmasa.isEmpty() && !optionalalan.isEmpty()) {
+            Masa dbMasa = optionalmasa.get();
             dbMasa.setAlanId(dtoMasaGuncelle.getAlanId());
             dbMasa.setMasaAdi(dtoMasaGuncelle.getMasaIsmi());
             dbMasa.setSonGuncellemeTarihi(new Date());
 
-            Masa updatedAlan=masaRepository.save(dbMasa);
+            Masa updatedAlan = masaRepository.save(dbMasa);
 
             BeanUtils.copyProperties(updatedAlan, dtoMasa);
             return dtoMasa;
@@ -125,41 +143,42 @@ public class MasaServiceImpl implements IMasaService{
 
     @Override
     public DtoMasa postMasaUrunEkle(String masaId, DtoMasaIcerikIU dtoMasaUrunEkle) {
-        Optional<Masa> optionalMasa=masaRepository.findById(masaId);
-        DtoMasa dtoMasa=new DtoMasa();
+        Optional<Masa> optionalMasa = masaRepository.findById(masaId);
+        DtoMasa dtoMasa = new DtoMasa();
 
-        if(optionalMasa.isPresent()){
-            Masa dbMasa=optionalMasa.get();
-            Optional<Urun> optionalUrun=urunRepository.findById(dtoMasaUrunEkle.getUrun().getId());
+        if (optionalMasa.isPresent()) {
+            Masa dbMasa = optionalMasa.get();
+            Optional<Urun> optionalUrun = urunRepository.findById(dtoMasaUrunEkle.getUrun().getId());
 
-            if(optionalUrun.isPresent()){
-                Urun urun=optionalUrun.get();
+            if (optionalUrun.isPresent()) {
+                Urun urun = optionalUrun.get();
 
-                MasaIcerik masaIcerik=new MasaIcerik();
+                MasaIcerik masaIcerik = new MasaIcerik();
                 masaIcerik.setUrun(urun);
                 masaIcerik.setUrunAdet(dtoMasaUrunEkle.getUrunAdet());
                 masaIcerik.setUrunEklenmeTarihi(new Date());
+                masaIcerik.setOdenmeDurumu(false);
 
-                if(dbMasa.getMasaIcerikList().isEmpty()){
+                if (dbMasa.getMasaIcerikList().isEmpty()) {
                     dbMasa.setMasaIcerikList(new ArrayList<>());
                 }
                 dbMasa.getMasaIcerikList().add(masaIcerik);
-                Masa masaGuncellenmis= masaRepository.save(dbMasa);
+                Masa masaGuncellenmis = masaRepository.save(dbMasa);
                 BeanUtils.copyProperties(masaGuncellenmis, dtoMasa);
-                
+
                 // Masa içeriği listesini DTO'ya dönüştürüp ekliyoruz
                 List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
                 for (MasaIcerik masaIcerikDb : masaGuncellenmis.getMasaIcerikList()) {
                     DtoMasaIcerik dtoMasaIcerik = new DtoMasaIcerik();
                     BeanUtils.copyProperties(masaIcerikDb, dtoMasaIcerik);
-                    
+
                     // DtoUrun nesnesini oluştur ve ata
                     DtoUrun dtoUrun = new DtoUrun();
                     if (masaIcerikDb.getUrun() != null) {
                         BeanUtils.copyProperties(masaIcerikDb.getUrun(), dtoUrun);
                     }
                     dtoMasaIcerik.setUrun(dtoUrun); // DtoMasaIcerik'e DtoUrun'u ekle
-                    
+
                     dtoMasaIcerikList.add(dtoMasaIcerik);
                 }
                 dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
@@ -171,22 +190,99 @@ public class MasaServiceImpl implements IMasaService{
     }
 
     @Override
-    public DtoMasa putMasaUrunSil(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSil) {
-        Optional<Masa> optionalMasa=masaRepository.findById(masaId);
-        if(optionalMasa.isPresent()){
-            // Masa masa=optionalMasa.get();
-            // for (DtoMasaIcerikIU dtoMasaIcerikIU : dtoMasaUrunSil) {
-                
+    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSilList) {
+        Optional<Masa> optionalMasa = masaRepository.findById(masaId);
+        DtoMasa dtoMasa = new DtoMasa();
 
-                
-            // }
+        if (optionalMasa.isPresent()) {
+            Masa masa = optionalMasa.get();
+            List<MasaIcerik> masaIcerikList=new ArrayList<>();
+            // Her ürün için işlem yap
+            for (DtoMasaIcerikIU dtoMasaUrunSil : dtoMasaUrunSilList) {
+                masaIcerikList = masa.getMasaIcerikList();
+                MasaIcerik mevcutIcerik = masaIcerikList.stream()
+                .filter(icerik -> icerik.getUrun().getId().equals(dtoMasaUrunSil.getUrun().getId()) && !icerik.isOdenmeDurumu())
+                .findFirst()
+                .orElse(null);
+
+                if (mevcutIcerik != null) {
+                Long mevcutAdet = mevcutIcerik.getUrunAdet();
+                Long silinecekAdet = dtoMasaUrunSil.getUrunAdet();
+                if (mevcutAdet.equals(silinecekAdet)) {
+                    mevcutIcerik.setOdenmeDurumu(true);
+                    mevcutIcerik.setUrunKaldirilmaTarihi(new Date());
+                }
+                else if(mevcutAdet>silinecekAdet){
+                    MasaIcerik ayrilmisMasaIcerik=new MasaIcerik();
+                    mevcutIcerik.setUrunAdet(mevcutAdet-silinecekAdet);
+                    BeanUtils.copyProperties(mevcutIcerik, ayrilmisMasaIcerik);
+                    ayrilmisMasaIcerik.setUrunAdet(silinecekAdet);
+                    ayrilmisMasaIcerik.setOdenmeDurumu(true);
+                    ayrilmisMasaIcerik.setUrunKaldirilmaTarihi(new Date());
+                    masaIcerikList.add(ayrilmisMasaIcerik);
+                }
+                else{
+                    return null;
+                }
+                // // Güncellenmiş içerik, listede eski öğenin yerine konuyor
+                // int index = masaIcerikList.indexOf(mevcutIcerik);
+                // if (index != -1) {
+                //     masaIcerikList.set(index, mevcutIcerik);
+                // }
+            }
+            }
+            masa.setMasaIcerikList(masaIcerikList);
+            Masa dbMasa=masaRepository.save(masa);
+
+            masaIcerikList = dbMasa.getMasaIcerikList();
+            List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
+            for (MasaIcerik masaIcerik : masaIcerikList) {
+                DtoUrun dtoUrun = new DtoUrun();
+                DtoMasaIcerik dtoMasaIcerik = new DtoMasaIcerik();
+                Urun urun = masaIcerik.getUrun();
+                BeanUtils.copyProperties(urun, dtoUrun);
+                BeanUtils.copyProperties(masaIcerik, dtoMasaIcerik);
+                dtoMasaIcerik.setUrun(dtoUrun);
+                dtoMasaIcerikList.add(dtoMasaIcerik);
+            }
+            BeanUtils.copyProperties(masa, dtoMasa);
+            dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
+            return dtoMasa;
 
         }
-        
-        
+
         return null;
     }
 
-    
+    @Override
+    public void putMasaBosalt(String masaId) {
+        Optional<Masa> optional=masaRepository.findById(masaId);
+        if(optional.isPresent()){
+            Masa masa=optional.get();
+            GecmisMasa gecmisMasa=new GecmisMasa();
+            List<MasaIcerik> masaIcerikList=masa.getMasaIcerikList();
+            List<GecmisMasaIcerik> gecmisMasaIcerikList=new ArrayList<>();
+            BigDecimal toplamTutar = BigDecimal.ZERO;
+            for (MasaIcerik masaIcerik : masaIcerikList) {
+                GecmisMasaIcerik gecmisMasaIcerik=new GecmisMasaIcerik();
+                gecmisMasaIcerik.setOdenmeDurumu(masaIcerik.isOdenmeDurumu());
+                gecmisMasaIcerik.setUrun(masaIcerik.getUrun());
+                gecmisMasaIcerik.setUrunAdet(masaIcerik.getUrunAdet());
+                gecmisMasaIcerik.setUrunEklenmeTarihi(masaIcerik.getUrunEklenmeTarihi());
+                gecmisMasaIcerik.setUrunKaldirilmaTarihi(masaIcerik.getUrunKaldirilmaTarihi());
+                gecmisMasaIcerikList.add(gecmisMasaIcerik);
+                BigDecimal urunFiyat = new BigDecimal(masaIcerik.getUrun().getFiyat().toString());
+                BigDecimal urunAdet = new BigDecimal(masaIcerik.getUrunAdet().toString());
+                toplamTutar = toplamTutar.add(urunFiyat.multiply(urunAdet));
+            }
+            gecmisMasa.setGecmisMasaIcerikList(gecmisMasaIcerikList);
+            gecmisMasa.setMasaId(masaId);
+            gecmisMasa.setMasaMusteriGelmeTarihi(masa.getMasaMusteriGelmeTarihi());
+            gecmisMasa.setMasaMusteriGitmeTarihi(new Date());
+            gecmisMasa.setToplamTutar(toplamTutar);
+            gecmisMasaRepository.save(gecmisMasa);
+        }
+    }
+
 
 }
