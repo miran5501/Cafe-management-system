@@ -22,4 +22,6 @@ public interface IMasaService {
     public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSilList);
 
     public void putMasaBosalt(String masaId);
+
+    public void putMasaDoldur(String masaId);
 }

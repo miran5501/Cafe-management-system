@@ -22,6 +22,9 @@ import com.kafe.kafe_yonetim_sistemi.entities.GecmisMasaIcerik;
 import com.kafe.kafe_yonetim_sistemi.entities.Masa;
 import com.kafe.kafe_yonetim_sistemi.entities.MasaIcerik;
 import com.kafe.kafe_yonetim_sistemi.entities.Urun;
+import com.kafe.kafe_yonetim_sistemi.exception.BaseException;
+import com.kafe.kafe_yonetim_sistemi.exception.ErrorMessage;
+import com.kafe.kafe_yonetim_sistemi.exception.MessageType;
 import com.kafe.kafe_yonetim_sistemi.repository.AlanRepository;
 import com.kafe.kafe_yonetim_sistemi.repository.GecmisMasaRepository;
 import com.kafe.kafe_yonetim_sistemi.repository.MasaRepository;
@@ -92,7 +95,9 @@ public class MasaServiceImpl implements IMasaService {
             return dtoMasa;
 
         }
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile bir masa bulunmamaktadır!"));
+        }
     }
 
     @Override
@@ -281,6 +286,20 @@ public class MasaServiceImpl implements IMasaService {
             gecmisMasa.setMasaMusteriGitmeTarihi(new Date());
             gecmisMasa.setToplamTutar(toplamTutar);
             gecmisMasaRepository.save(gecmisMasa);
+
+            masa.getMasaIcerikList().clear();
+            masa.setMasaDurumu(false);
+            masaRepository.save(masa);
+        }
+    }
+
+    @Override
+    public void putMasaDoldur(String masaId) {
+        Optional<Masa> optional=masaRepository.findById(masaId);
+        if(optional.isPresent()){
+            Masa masa=optional.get();
+            masa.setMasaDurumu(true);
+            masaRepository.save(masa);
         }
     }
 

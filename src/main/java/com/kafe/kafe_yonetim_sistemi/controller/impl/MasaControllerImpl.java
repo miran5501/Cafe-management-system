@@ -67,6 +67,12 @@ public class MasaControllerImpl implements IMasaController {
         masaService.putMasaBosalt(masaId);
     }
 
+    @PutMapping(path="/doldur/{id}")
+    @Override
+    public void putMasaDoldur(@PathVariable(name="id") String masaId) {
+        masaService.putMasaDoldur(masaId);
+    }
+
     
 
 }
