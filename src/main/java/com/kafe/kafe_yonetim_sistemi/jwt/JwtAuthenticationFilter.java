@@ -30,7 +30,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
             throws ServletException, IOException {
         
         String header;
-        String token = null;
+        String token;
         String username;
         
         header= request.getHeader("Authorization");
@@ -38,7 +38,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
             filterChain.doFilter(request, response);
             return;
         }
-        header = header.substring(7);
+        token = header.substring(7);
         try {
             username = jwtService.getUsernameByToken(token);
             if(username!=null && SecurityContextHolder.getContext().getAuthentication()==null){

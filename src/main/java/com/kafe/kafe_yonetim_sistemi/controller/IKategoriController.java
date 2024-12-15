@@ -10,4 +10,6 @@ public interface IKategoriController {
     public List<DtoKategori> getTumKategoriler();
 
     public DtoKategori postKategoriKaydet(DtoKategoriIU dtoKategoriIU);
+
+    public DtoKategori putKategoriGuncelle(DtoKategoriIU dtoKategoriIU, String id);
 }

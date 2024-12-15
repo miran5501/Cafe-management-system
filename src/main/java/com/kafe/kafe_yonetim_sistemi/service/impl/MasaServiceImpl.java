@@ -15,6 +15,7 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaGuncelle;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIU;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerik;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikIU;
+import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikOde;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoUrun;
 import com.kafe.kafe_yonetim_sistemi.entities.Alan;
 import com.kafe.kafe_yonetim_sistemi.entities.GecmisMasa;
@@ -195,49 +196,45 @@ public class MasaServiceImpl implements IMasaService {
     }
 
     @Override
-    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSilList) {
+    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikOde> dtoMasaUrunSilList) {
         Optional<Masa> optionalMasa = masaRepository.findById(masaId);
         DtoMasa dtoMasa = new DtoMasa();
 
         if (optionalMasa.isPresent()) {
             Masa masa = optionalMasa.get();
-            List<MasaIcerik> masaIcerikList=new ArrayList<>();
+            List<MasaIcerik> masaIcerikList = new ArrayList<>();
+
             // Her ürün için işlem yap
-            for (DtoMasaIcerikIU dtoMasaUrunSil : dtoMasaUrunSilList) {
+            for (DtoMasaIcerikOde dtoMasaUrunSil : dtoMasaUrunSilList) {
                 masaIcerikList = masa.getMasaIcerikList();
                 MasaIcerik mevcutIcerik = masaIcerikList.stream()
-                .filter(icerik -> icerik.getUrun().getId().equals(dtoMasaUrunSil.getUrun().getId()) && !icerik.isOdenmeDurumu())
-                .findFirst()
-                .orElse(null);
+                    .filter(icerik -> icerik.getId().equals(dtoMasaUrunSil.getId()) && !icerik.isOdenmeDurumu())
+                    .findFirst()
+                    .orElse(null);
 
                 if (mevcutIcerik != null) {
-                Long mevcutAdet = mevcutIcerik.getUrunAdet();
-                Long silinecekAdet = dtoMasaUrunSil.getUrunAdet();
-                if (mevcutAdet.equals(silinecekAdet)) {
-                    mevcutIcerik.setOdenmeDurumu(true);
-                    mevcutIcerik.setUrunKaldirilmaTarihi(new Date());
+                    Long mevcutAdet = mevcutIcerik.getUrunAdet();
+                    Long silinecekAdet = dtoMasaUrunSil.getUrunAdet();
+
+                    if (mevcutAdet.equals(silinecekAdet)) {
+                        mevcutIcerik.setOdenmeDurumu(true);
+                        mevcutIcerik.setUrunKaldirilmaTarihi(new Date());
+                    } else if (mevcutAdet > silinecekAdet) {
+                        MasaIcerik ayrilmisMasaIcerik = new MasaIcerik();
+                        mevcutIcerik.setUrunAdet(mevcutAdet - silinecekAdet);
+                        BeanUtils.copyProperties(mevcutIcerik, ayrilmisMasaIcerik);
+                        ayrilmisMasaIcerik.setUrunAdet(silinecekAdet);
+                        ayrilmisMasaIcerik.setOdenmeDurumu(true);
+                        ayrilmisMasaIcerik.setUrunKaldirilmaTarihi(new Date());
+                        masaIcerikList.add(ayrilmisMasaIcerik);
+                    } else {
+                        return null; // Geçersiz durum
+                    }
                 }
-                else if(mevcutAdet>silinecekAdet){
-                    MasaIcerik ayrilmisMasaIcerik=new MasaIcerik();
-                    mevcutIcerik.setUrunAdet(mevcutAdet-silinecekAdet);
-                    BeanUtils.copyProperties(mevcutIcerik, ayrilmisMasaIcerik);
-                    ayrilmisMasaIcerik.setUrunAdet(silinecekAdet);
-                    ayrilmisMasaIcerik.setOdenmeDurumu(true);
-                    ayrilmisMasaIcerik.setUrunKaldirilmaTarihi(new Date());
-                    masaIcerikList.add(ayrilmisMasaIcerik);
-                }
-                else{
-                    return null;
-                }
-                // // Güncellenmiş içerik, listede eski öğenin yerine konuyor
-                // int index = masaIcerikList.indexOf(mevcutIcerik);
-                // if (index != -1) {
-                //     masaIcerikList.set(index, mevcutIcerik);
-                // }
             }
-            }
+
             masa.setMasaIcerikList(masaIcerikList);
-            Masa dbMasa=masaRepository.save(masa);
+            Masa dbMasa = masaRepository.save(masa);
 
             masaIcerikList = dbMasa.getMasaIcerikList();
             List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
@@ -250,10 +247,10 @@ public class MasaServiceImpl implements IMasaService {
                 dtoMasaIcerik.setUrun(dtoUrun);
                 dtoMasaIcerikList.add(dtoMasaIcerik);
             }
+
             BeanUtils.copyProperties(masa, dtoMasa);
             dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
             return dtoMasa;
-
         }
 
         return null;
@@ -266,6 +263,13 @@ public class MasaServiceImpl implements IMasaService {
             Masa masa=optional.get();
             GecmisMasa gecmisMasa=new GecmisMasa();
             List<MasaIcerik> masaIcerikList=masa.getMasaIcerikList();
+            // Ödenmemiş ürün kontrolü
+            boolean odemesiYapilmamisUrunVarMi = masaIcerikList.stream()
+            .anyMatch(masaIcerik -> !masaIcerik.isOdenmeDurumu());
+
+            if (odemesiYapilmamisUrunVarMi) {
+                throw new BaseException(new ErrorMessage(MessageType.GENERAL_EXCEPTION, "Ödenmemiş ürünler bulunmaktadır!"));
+            }
             List<GecmisMasaIcerik> gecmisMasaIcerikList=new ArrayList<>();
             BigDecimal toplamTutar = BigDecimal.ZERO;
             for (MasaIcerik masaIcerik : masaIcerikList) {
@@ -290,6 +294,9 @@ public class MasaServiceImpl implements IMasaService {
             masa.getMasaIcerikList().clear();
             masa.setMasaDurumu(false);
             masaRepository.save(masa);
+        }
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile bir masa bulunmamaktadır!"));
         }
     }
 

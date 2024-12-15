@@ -10,6 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.kafe.kafe_yonetim_sistemi.jwt.AuthEntryPoint;
 import com.kafe.kafe_yonetim_sistemi.jwt.JwtAuthenticationFilter;
 
 @Configuration
@@ -18,6 +19,7 @@ public class SecurityConfig {
 
     public static final String AUTHENTICATE="/authenticate";
     public static final String REGISTER ="/register";
+    public static final String REFRESH_TOKEN="/refreshToken";
 
     @Autowired
     private AuthenticationProvider authenticationProvider;
@@ -25,13 +27,17 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    @Autowired
+    private AuthEntryPoint authEntryPoint;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(request -> request.requestMatchers(AUTHENTICATE, REGISTER)
+                .authorizeHttpRequests(request -> request.requestMatchers(AUTHENTICATE, REGISTER, REFRESH_TOKEN)
                         .permitAll()
                         .anyRequest()
                         .authenticated())
+                .exceptionHandling().authenticationEntryPoint(authEntryPoint).and()
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

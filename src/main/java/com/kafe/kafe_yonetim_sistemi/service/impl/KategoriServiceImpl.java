@@ -3,6 +3,7 @@ package com.kafe.kafe_yonetim_sistemi.service.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,20 @@ public class KategoriServiceImpl implements IKategoriService{
         Kategori dbKategori=kategoriRepository.save(kategori);
         BeanUtils.copyProperties(dbKategori, dtoKategori);
         return dtoKategori;
+    }
+
+    @Override
+    public DtoKategori putKategoriGuncelle(DtoKategoriIU dtoKategoriIU, String id) {
+        Optional<Kategori> optional=kategoriRepository.findById(id);
+        if(optional.isPresent()){
+            DtoKategori dtoKategori=new DtoKategori();
+            Kategori kategori=optional.get();
+            kategori.setKategoriIsmi(dtoKategoriIU.getKategoriIsmi());
+            Kategori dbKategori=kategoriRepository.save(kategori);
+            BeanUtils.copyProperties(dbKategori, dtoKategori);
+            return dtoKategori;
+        }
+        return null;
     }
 
 }

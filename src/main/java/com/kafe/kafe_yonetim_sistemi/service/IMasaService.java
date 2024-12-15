@@ -6,6 +6,7 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoMasa;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaGuncelle;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIU;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikIU;
+import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikOde;
 
 public interface IMasaService {
 
@@ -19,7 +20,7 @@ public interface IMasaService {
 
     public DtoMasa postMasaUrunEkle(String masaId, DtoMasaIcerikIU dtoMasaUrunEkle);
 
-    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikIU> dtoMasaUrunSilList);
+    public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikOde> dtoMasaUrunSilList);
 
     public void putMasaBosalt(String masaId);
 

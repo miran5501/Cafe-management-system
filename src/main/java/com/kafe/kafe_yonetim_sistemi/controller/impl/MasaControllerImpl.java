@@ -16,6 +16,7 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoMasa;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaGuncelle;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIU;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikIU;
+import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikOde;
 import com.kafe.kafe_yonetim_sistemi.service.impl.MasaServiceImpl;
 
 @RestController
@@ -57,7 +58,7 @@ public class MasaControllerImpl implements IMasaController {
 
     @PutMapping(path = "/urun-ode/{masaid}")
     @Override
-    public DtoMasa putMasaUrunOde(@PathVariable(name = "masaid") String masaId, @RequestBody List<DtoMasaIcerikIU> dtoMasaUrunSilList) {
+    public DtoMasa putMasaUrunOde(@PathVariable(name = "masaid") String masaId, @RequestBody List<DtoMasaIcerikOde> dtoMasaUrunSilList) {
         return masaService.putMasaUrunOde(masaId, dtoMasaUrunSilList);
     }
 
