@@ -38,4 +38,7 @@ public class Urun {
     @Field(name = "kategori_id")
     private String kategoriId;
 
+    @Field(name="resim")
+    private String resim;
+
 }

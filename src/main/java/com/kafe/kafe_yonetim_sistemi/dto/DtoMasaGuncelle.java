@@ -13,3 +13,5 @@ public class DtoMasaGuncelle {
 
     private String masaIsmi;
 }
+
+

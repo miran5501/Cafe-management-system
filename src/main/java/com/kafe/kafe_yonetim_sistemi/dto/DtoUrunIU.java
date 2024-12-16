@@ -18,4 +18,6 @@ public class DtoUrunIU {
     private Long stok;
 
     private String kategoriId;
+
+    private String resim;
 }

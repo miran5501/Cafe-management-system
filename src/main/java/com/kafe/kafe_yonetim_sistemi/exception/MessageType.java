@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum MessageType {
 
     NO_RECORD_EXIST("1001","Kayıt bulunamadı"),
+    ISLEM_KONTROLU("2002","Kontrolsüz işlem"),
     GENERAL_EXCEPTION("9999","Genel bir hata oluştu");
 
     private final String code;

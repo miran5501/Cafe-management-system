@@ -1,6 +1,7 @@
 package com.kafe.kafe_yonetim_sistemi.controller.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import com.kafe.kafe_yonetim_sistemi.service.IRefreshTokenService;
 
 import jakarta.validation.Valid;
 
+@CrossOrigin
 @RestController
 public class RestAuthControllerImpl implements IRestAuthController{
 

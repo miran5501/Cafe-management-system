@@ -3,6 +3,7 @@ package com.kafe.kafe_yonetim_sistemi.controller.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikIU;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoMasaIcerikOde;
 import com.kafe.kafe_yonetim_sistemi.service.impl.MasaServiceImpl;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/masa")
 public class MasaControllerImpl implements IMasaController {
@@ -64,14 +66,14 @@ public class MasaControllerImpl implements IMasaController {
 
     @PutMapping(path="/bosalt/{id}")
     @Override
-    public void putMasaBosalt(@PathVariable(name="id") String masaId) {
-        masaService.putMasaBosalt(masaId);
+    public DtoMasa putMasaBosalt(@PathVariable(name="id") String masaId) {
+        return masaService.putMasaBosalt(masaId);
     }
 
     @PutMapping(path="/doldur/{id}")
     @Override
-    public void putMasaDoldur(@PathVariable(name="id") String masaId) {
-        masaService.putMasaDoldur(masaId);
+    public DtoMasa putMasaDoldur(@PathVariable(name="id") String masaId) {
+        return masaService.putMasaDoldur(masaId);
     }
 
     

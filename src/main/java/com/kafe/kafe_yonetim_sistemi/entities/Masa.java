@@ -1,5 +1,6 @@
 package com.kafe.kafe_yonetim_sistemi.entities;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +29,9 @@ public class Masa {
 
     @Field(name = "olusturulma_tarihi")
     private Date olusturulmaTarihi;
+
+    @Field(name="toplam_tutar")
+    private BigDecimal toplamTutar;
 
     @Field(name = "son_guncelleme_tarihi")
     private Date sonGuncellemeTarihi;

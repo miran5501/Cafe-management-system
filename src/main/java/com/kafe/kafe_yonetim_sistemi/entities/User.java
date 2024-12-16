@@ -27,11 +27,8 @@ public class User implements UserDetails{
     @Field(name="password")
     private String password;
 
-    @Field(name="isim")
-    private String isim;
-
-    @Field(name="soyisim")
-    private String soyisim;
+    @Field(name="isim_soyisim")
+    private String isimSoyisim;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

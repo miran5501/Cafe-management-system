@@ -3,6 +3,7 @@ package com.kafe.kafe_yonetim_sistemi.controller.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoKategori;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoKategoriIU;
 import com.kafe.kafe_yonetim_sistemi.service.IKategoriService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/kategori")
 public class KategoriControllerImpl implements IKategoriController{

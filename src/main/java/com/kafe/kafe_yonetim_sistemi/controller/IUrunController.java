@@ -12,4 +12,8 @@ public interface IUrunController {
     public List<DtoUrun> getUrunlerKategoriyeGore(String kategoriId);
 
     public DtoUrun postUrunKaydet(DtoUrunIU dtoUrunIU);
+
+    public DtoUrun getUrun(String id);
+
+    public DtoUrun putUrunGuncelle(DtoUrunIU urunIU, String id);
 }

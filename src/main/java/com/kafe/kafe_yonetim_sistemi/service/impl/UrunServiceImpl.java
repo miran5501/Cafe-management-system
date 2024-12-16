@@ -82,4 +82,59 @@ public class UrunServiceImpl implements IUrunService{
         return dtoUrun;
     }
 
+    @Override
+    public DtoUrun getUrun(String id) {
+        Optional<Urun> optional=urunRepository.findById(id);
+        if(optional.isPresent()){
+            Urun urun=optional.get();
+            DtoUrun dtoUrun=new DtoUrun();
+            BeanUtils.copyProperties(urun, dtoUrun);
+            return dtoUrun;
+        }
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile ürün bulunmamaktadır!"));
+        }
+    }
+
+    @Override
+    public DtoUrun putUrunGuncelle(DtoUrunIU urunIU, String id) {
+        Optional<Urun> optional=urunRepository.findById(id);
+        if(optional.isPresent()){
+            Urun urun=optional.get();
+            if (urunIU.getUrunAdi() == null || urunIU.getUrunAdi().isEmpty()) {
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Ürün adı boş olamaz!"));
+            }
+            if (urunIU.getFiyat() == null) {
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Fiyat boş olamaz!"));
+            }
+            if (urunIU.getStok() == null) {
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Stok boş olamaz!"));
+            }
+            if (urunIU.getResim() == null || urunIU.getResim().isEmpty()) {
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Resim boş olamaz!"));
+            }
+            if (urunIU.getKategoriId() == null || urunIU.getKategoriId().isEmpty()) {
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Kategori boş olamaz!"));
+            }
+            urun.setUrunAdi(urunIU.getUrunAdi());
+            urun.setFiyat(urunIU.getFiyat());
+            urun.setResim(urunIU.getResim());
+            urun.setKategoriId(urunIU.getKategoriId());
+            urun.setStok(urunIU.getStok());
+            DtoUrun dtoUrun=new DtoUrun();
+    
+            Urun updatedUrun = urunRepository.save(urun);
+            BeanUtils.copyProperties(updatedUrun, dtoUrun);
+    
+            return dtoUrun;
+        }
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile ürün bulunmamaktadır!"));
+        }
+
+
+        
+    }
+
+
 }

@@ -113,6 +113,7 @@ public class MasaServiceImpl implements IMasaService {
         Masa masa = new Masa();
         masa.setAlanId(dtoMasaIU.getAlanId());
         masa.setMasaAdi(dtoMasaIU.getMasaAdi());
+        masa.setToplamTutar(BigDecimal.ZERO);
         masa.setOlusturulmaTarihi(new Date());
         masa.setSonGuncellemeTarihi(new Date());
         masa.setMasaDurumu(false);
@@ -155,45 +156,70 @@ public class MasaServiceImpl implements IMasaService {
         if (optionalMasa.isPresent()) {
             Masa dbMasa = optionalMasa.get();
             Optional<Urun> optionalUrun = urunRepository.findById(dtoMasaUrunEkle.getUrun().getId());
-
-            if (optionalUrun.isPresent()) {
-                Urun urun = optionalUrun.get();
-
-                MasaIcerik masaIcerik = new MasaIcerik();
-                masaIcerik.setUrun(urun);
-                masaIcerik.setUrunAdet(dtoMasaUrunEkle.getUrunAdet());
-                masaIcerik.setUrunEklenmeTarihi(new Date());
-                masaIcerik.setOdenmeDurumu(false);
-
-                if (dbMasa.getMasaIcerikList().isEmpty()) {
-                    dbMasa.setMasaIcerikList(new ArrayList<>());
-                }
-                dbMasa.getMasaIcerikList().add(masaIcerik);
-                Masa masaGuncellenmis = masaRepository.save(dbMasa);
-                BeanUtils.copyProperties(masaGuncellenmis, dtoMasa);
-
-                // Masa içeriği listesini DTO'ya dönüştürüp ekliyoruz
-                List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
-                for (MasaIcerik masaIcerikDb : masaGuncellenmis.getMasaIcerikList()) {
-                    DtoMasaIcerik dtoMasaIcerik = new DtoMasaIcerik();
-                    BeanUtils.copyProperties(masaIcerikDb, dtoMasaIcerik);
-
-                    // DtoUrun nesnesini oluştur ve ata
-                    DtoUrun dtoUrun = new DtoUrun();
-                    if (masaIcerikDb.getUrun() != null) {
-                        BeanUtils.copyProperties(masaIcerikDb.getUrun(), dtoUrun);
+            
+            if(dbMasa.isMasaDurumu()) {
+                if (optionalUrun.isPresent()) {
+                    Urun urun = optionalUrun.get();
+        
+                    MasaIcerik masaIcerik = new MasaIcerik();
+                    masaIcerik.setUrun(urun);
+                    masaIcerik.setUrunAdet(dtoMasaUrunEkle.getUrunAdet());
+                    masaIcerik.setUrunEklenmeTarihi(new Date());
+                    masaIcerik.setOdenmeDurumu(false);
+        
+                    // Eğer masa içeriği listesi boşsa, başlatıyoruz
+                    if (dbMasa.getMasaIcerikList().isEmpty()) {
+                        dbMasa.setMasaIcerikList(new ArrayList<>());
                     }
-                    dtoMasaIcerik.setUrun(dtoUrun); // DtoMasaIcerik'e DtoUrun'u ekle
 
-                    dtoMasaIcerikList.add(dtoMasaIcerik);
+                    // Masa içeriği listesine yeni ürünü ekliyoruz
+                    dbMasa.getMasaIcerikList().add(masaIcerik);
+
+                    // Eklenen ürünün fiyatını alıyoruz
+                    BigDecimal urunFiyati = urun.getFiyat();
+                    Long urunAdeti = masaIcerik.getUrunAdet();
+                    
+                    // Toplam tutara ekliyoruz (adet * fiyat)
+                    BigDecimal toplamFiyat = urunFiyati.multiply(BigDecimal.valueOf(urunAdeti));
+                    if (dbMasa.getToplamTutar() == null) {
+                        dbMasa.setToplamTutar(BigDecimal.ZERO);
+                    }
+                    dbMasa.setToplamTutar(dbMasa.getToplamTutar().add(toplamFiyat));
+
+                    // Masayı güncelliyoruz
+                    Masa masaGuncellenmis = masaRepository.save(dbMasa);
+                    BeanUtils.copyProperties(masaGuncellenmis, dtoMasa);
+
+                    // Masa içeriği listesini DTO'ya dönüştürüp ekliyoruz
+                    List<DtoMasaIcerik> dtoMasaIcerikList = new ArrayList<>();
+                    for (MasaIcerik masaIcerikDb : masaGuncellenmis.getMasaIcerikList()) {
+                        DtoMasaIcerik dtoMasaIcerik = new DtoMasaIcerik();
+                        BeanUtils.copyProperties(masaIcerikDb, dtoMasaIcerik);
+
+                        // DtoUrun nesnesini oluştur ve ata
+                        DtoUrun dtoUrun = new DtoUrun();
+                        if (masaIcerikDb.getUrun() != null) {
+                            BeanUtils.copyProperties(masaIcerikDb.getUrun(), dtoUrun);
+                        }
+                        dtoMasaIcerik.setUrun(dtoUrun); // DtoMasaIcerik'e DtoUrun'u ekle
+
+                        dtoMasaIcerikList.add(dtoMasaIcerik);
+                    }
+                    dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
+
+                    return dtoMasa;
                 }
-                dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
-
-                return dtoMasa;
+                return null;
             }
+            else {
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Önce masayı açmalısınız!"));
+            }
+
+        } else {
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile bir masa bulunmamaktadır!"));
         }
-        return null;
     }
+
 
     @Override
     public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikOde> dtoMasaUrunSilList) {
@@ -202,11 +228,13 @@ public class MasaServiceImpl implements IMasaService {
 
         if (optionalMasa.isPresent()) {
             Masa masa = optionalMasa.get();
-            List<MasaIcerik> masaIcerikList = new ArrayList<>();
+            List<MasaIcerik> masaIcerikList = masa.getMasaIcerikList();
+
+            // Ödenen ürünlere göre masa fiyatını güncelleme
+            BigDecimal toplamOdenenFiyat = BigDecimal.ZERO;
 
             // Her ürün için işlem yap
             for (DtoMasaIcerikOde dtoMasaUrunSil : dtoMasaUrunSilList) {
-                masaIcerikList = masa.getMasaIcerikList();
                 MasaIcerik mevcutIcerik = masaIcerikList.stream()
                     .filter(icerik -> icerik.getId().equals(dtoMasaUrunSil.getId()) && !icerik.isOdenmeDurumu())
                     .findFirst()
@@ -215,6 +243,10 @@ public class MasaServiceImpl implements IMasaService {
                 if (mevcutIcerik != null) {
                     Long mevcutAdet = mevcutIcerik.getUrunAdet();
                     Long silinecekAdet = dtoMasaUrunSil.getUrunAdet();
+
+                    // Ödenen ürünün fiyatını hesapla
+                    BigDecimal urunFiyati = mevcutIcerik.getUrun().getFiyat(); // Ürünün fiyatı
+                    BigDecimal toplamFiyat = urunFiyati.multiply(BigDecimal.valueOf(silinecekAdet));
 
                     if (mevcutAdet.equals(silinecekAdet)) {
                         mevcutIcerik.setOdenmeDurumu(true);
@@ -228,11 +260,23 @@ public class MasaServiceImpl implements IMasaService {
                         ayrilmisMasaIcerik.setUrunKaldirilmaTarihi(new Date());
                         masaIcerikList.add(ayrilmisMasaIcerik);
                     } else {
-                        return null; // Geçersiz durum
+                        throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Ödenecek adet mevcut adetten fazla olamaz!"));
                     }
+
+                    // Ödenen toplam fiyatı güncellemeye ekliyoruz
+                    toplamOdenenFiyat = toplamOdenenFiyat.add(toplamFiyat);
                 }
             }
 
+            // Masa fiyatını güncelle
+            if (masa.getToplamTutar() == null) {
+                masa.setToplamTutar(BigDecimal.ZERO);
+            }
+
+            // Ödenen tutarı çıkarıyoruz
+            masa.setToplamTutar(masa.getToplamTutar().subtract(toplamOdenenFiyat));
+
+            // Masayı güncelliyoruz
             masa.setMasaIcerikList(masaIcerikList);
             Masa dbMasa = masaRepository.save(masa);
 
@@ -252,14 +296,17 @@ public class MasaServiceImpl implements IMasaService {
             dtoMasa.setMasaIcerikList(dtoMasaIcerikList);
             return dtoMasa;
         }
-
-        return null;
+        else {
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile bir masa bulunmamaktadır!"));
+        }
     }
 
+
     @Override
-    public void putMasaBosalt(String masaId) {
+    public DtoMasa putMasaBosalt(String masaId) {
         Optional<Masa> optional=masaRepository.findById(masaId);
         if(optional.isPresent()){
+            DtoMasa dtoMasa=new DtoMasa();
             Masa masa=optional.get();
             GecmisMasa gecmisMasa=new GecmisMasa();
             List<MasaIcerik> masaIcerikList=masa.getMasaIcerikList();
@@ -268,7 +315,7 @@ public class MasaServiceImpl implements IMasaService {
             .anyMatch(masaIcerik -> !masaIcerik.isOdenmeDurumu());
 
             if (odemesiYapilmamisUrunVarMi) {
-                throw new BaseException(new ErrorMessage(MessageType.GENERAL_EXCEPTION, "Ödenmemiş ürünler bulunmaktadır!"));
+                throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Ödenmemiş ürünler bulunmaktadır!"));
             }
             List<GecmisMasaIcerik> gecmisMasaIcerikList=new ArrayList<>();
             BigDecimal toplamTutar = BigDecimal.ZERO;
@@ -293,7 +340,10 @@ public class MasaServiceImpl implements IMasaService {
 
             masa.getMasaIcerikList().clear();
             masa.setMasaDurumu(false);
-            masaRepository.save(masa);
+            Masa dbMasa=masaRepository.save(masa);
+            BeanUtils.copyProperties(dbMasa, dtoMasa);
+            dtoMasa.setMasaIcerikList(new ArrayList<>());
+            return dtoMasa;
         }
         else{
             throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile bir masa bulunmamaktadır!"));
@@ -301,13 +351,22 @@ public class MasaServiceImpl implements IMasaService {
     }
 
     @Override
-    public void putMasaDoldur(String masaId) {
+    public DtoMasa putMasaDoldur(String masaId) {
         Optional<Masa> optional=masaRepository.findById(masaId);
         if(optional.isPresent()){
+            DtoMasa dtoMasa=new DtoMasa();
             Masa masa=optional.get();
             masa.setMasaDurumu(true);
-            masaRepository.save(masa);
+            masa.setMasaMusteriGelmeTarihi(new Date());
+            masa.setToplamTutar(BigDecimal.ZERO);
+            Masa dbMasa=masaRepository.save(masa);
+            BeanUtils.copyProperties(dbMasa, dtoMasa);
+            dtoMasa.setMasaIcerikList(new ArrayList<>());
+            return dtoMasa;
+        }else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile bir masa bulunmamaktadır!"));
         }
+
     }
 
 

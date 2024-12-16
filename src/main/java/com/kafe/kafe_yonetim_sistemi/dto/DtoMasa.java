@@ -1,5 +1,6 @@
 package com.kafe.kafe_yonetim_sistemi.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class DtoMasa {
     private String masaAdi;
 
     private boolean masaDurumu;
+
+    private BigDecimal toplamTutar;
 
     private Date masaMusteriGelmeTarihi;
 

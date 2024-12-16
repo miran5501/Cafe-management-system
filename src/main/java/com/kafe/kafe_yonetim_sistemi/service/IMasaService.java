@@ -22,7 +22,7 @@ public interface IMasaService {
 
     public DtoMasa putMasaUrunOde(String masaId, List<DtoMasaIcerikOde> dtoMasaUrunSilList);
 
-    public void putMasaBosalt(String masaId);
+    public DtoMasa putMasaBosalt(String masaId);
 
-    public void putMasaDoldur(String masaId);
+    public DtoMasa putMasaDoldur(String masaId);
 }

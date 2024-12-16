@@ -3,6 +3,7 @@ package com.kafe.kafe_yonetim_sistemi.controller.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import com.kafe.kafe_yonetim_sistemi.dto.DtoAlanIU;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoAlanVeMasalar;
 import com.kafe.kafe_yonetim_sistemi.service.IAlanService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/alan")
 public class AlanControllerImpl implements IAlanController{

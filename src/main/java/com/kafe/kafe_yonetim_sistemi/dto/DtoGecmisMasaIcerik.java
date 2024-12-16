@@ -2,8 +2,6 @@ package com.kafe.kafe_yonetim_sistemi.dto;
 
 import java.util.Date;
 
-import com.kafe.kafe_yonetim_sistemi.entities.Urun;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +13,7 @@ public class DtoGecmisMasaIcerik {
 
     private String id;
 
-    private Urun urun;
+    private DtoUrun urun;
 
     private Date urunEklenmeTarihi;
 

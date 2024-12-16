@@ -55,6 +55,7 @@ public class AuthServiceImpl implements IAuthService{
         DtoUser dtoUser=new DtoUser();
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setIsimSoyisim(request.getIsimSoyisim());
 
         User dbUser = userRepository.save(user);
         BeanUtils.copyProperties(dbUser, dtoUser);
