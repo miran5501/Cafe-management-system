@@ -50,7 +50,9 @@ public class GecmisMasaServiceImpl implements IGecmisMasaService{
             }
             return dtoGecmisMasaList;
         }
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Geçmiş masa bulunmamaktadır!"));
+        }
     }
 
     @Override

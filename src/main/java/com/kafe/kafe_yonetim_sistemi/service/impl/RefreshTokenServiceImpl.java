@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.kafe.kafe_yonetim_sistemi.entities.RefreshToken;
 import com.kafe.kafe_yonetim_sistemi.entities.User;
+import com.kafe.kafe_yonetim_sistemi.exception.BaseException;
+import com.kafe.kafe_yonetim_sistemi.exception.ErrorMessage;
+import com.kafe.kafe_yonetim_sistemi.exception.MessageType;
 import com.kafe.kafe_yonetim_sistemi.jwt.AuthResponse;
 import com.kafe.kafe_yonetim_sistemi.jwt.JwtService;
 import com.kafe.kafe_yonetim_sistemi.jwt.RefreshTokenRequest;
@@ -47,8 +50,7 @@ public class RefreshTokenServiceImpl implements IRefreshTokenService{
         if(optional.isPresent()){
             RefreshToken refreshToken=optional.get();
             if(!isRefreshTokenExpired(refreshToken.getExpireDate())){
-                return null;
-                //token süresi geçmiş
+                throw new BaseException(new ErrorMessage(MessageType.GENERAL_EXCEPTION, "Tokenin süresi dolmuştur!"));
             }
             else{
                 Optional<User> optionalUser=userRepository.findById(refreshToken.getUserId());
@@ -59,10 +61,14 @@ public class RefreshTokenServiceImpl implements IRefreshTokenService{
 
                     return new AuthResponse(accessToken,savedRefreshToken.getRefreshToken());
                 }
-                return null;
+                else{
+                    throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile kullanıcı bulunmamaktadır!"));
+                }
             }
         }
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Böyle bir token bulunmamaktadır!"));
+        }
     }
 
 }

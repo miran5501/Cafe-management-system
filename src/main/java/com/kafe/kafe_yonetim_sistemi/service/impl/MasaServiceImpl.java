@@ -71,7 +71,9 @@ public class MasaServiceImpl implements IMasaService {
             }
             return dtoMasaList;
         }
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Masa bulunmamaktadır!"));
+        }
     }
 
     @Override
@@ -145,7 +147,9 @@ public class MasaServiceImpl implements IMasaService {
             return dtoMasa;
         }
 
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile alan veya masa bulunmamaktadır!"));
+        }
     }
 
     @Override
@@ -209,7 +213,9 @@ public class MasaServiceImpl implements IMasaService {
 
                     return dtoMasa;
                 }
-                return null;
+                else{
+                    throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile ürün bulunmamaktadır!"));
+                }
             }
             else {
                 throw new BaseException(new ErrorMessage(MessageType.ISLEM_KONTROLU, "Önce masayı açmalısınız!"));

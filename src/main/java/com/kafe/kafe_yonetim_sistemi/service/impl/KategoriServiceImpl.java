@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoKategori;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoKategoriIU;
 import com.kafe.kafe_yonetim_sistemi.entities.Kategori;
+import com.kafe.kafe_yonetim_sistemi.exception.BaseException;
+import com.kafe.kafe_yonetim_sistemi.exception.ErrorMessage;
+import com.kafe.kafe_yonetim_sistemi.exception.MessageType;
 import com.kafe.kafe_yonetim_sistemi.repository.KategoriRepository;
 import com.kafe.kafe_yonetim_sistemi.service.IKategoriService;
 
@@ -34,7 +37,9 @@ public class KategoriServiceImpl implements IKategoriService{
             }
             return dtoKategoriList;
         }
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Kategori bulunmamaktadır!"));
+        }
     }
 
     @Override
@@ -61,7 +66,9 @@ public class KategoriServiceImpl implements IKategoriService{
             BeanUtils.copyProperties(dbKategori, dtoKategori);
             return dtoKategori;
         }
-        return null;
+        else{
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile kategori bulunmamaktadır!"));
+        }
     }
 
 }

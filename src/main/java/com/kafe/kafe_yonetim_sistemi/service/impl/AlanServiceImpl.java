@@ -85,7 +85,7 @@ public class AlanServiceImpl implements IAlanService{
             BeanUtils.copyProperties(updatedAlan, dtoAlan);
             return dtoAlan;
         }
-        return null;
+        throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile alan bulunmamaktadır!"));
     }
 
     @Override
@@ -112,7 +112,7 @@ public class AlanServiceImpl implements IAlanService{
         }
 
 
-        return null;
+        throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Bu id ile alan bulunmamaktadır!"));
     }
 
 }

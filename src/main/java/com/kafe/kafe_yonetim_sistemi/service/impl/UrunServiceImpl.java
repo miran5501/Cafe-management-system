@@ -41,7 +41,7 @@ public class UrunServiceImpl implements IUrunService{
             }
             return dtoUrunList;
         }
-        return null;
+        throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Ürün bulunmamaktadır!"));
     }
 
     @Override

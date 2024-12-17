@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 import com.kafe.kafe_yonetim_sistemi.dto.DtoUser;
 import com.kafe.kafe_yonetim_sistemi.entities.RefreshToken;
 import com.kafe.kafe_yonetim_sistemi.entities.User;
+import com.kafe.kafe_yonetim_sistemi.exception.BaseException;
+import com.kafe.kafe_yonetim_sistemi.exception.ErrorMessage;
+import com.kafe.kafe_yonetim_sistemi.exception.MessageType;
 import com.kafe.kafe_yonetim_sistemi.jwt.AuthRequest;
 import com.kafe.kafe_yonetim_sistemi.jwt.AuthResponse;
 import com.kafe.kafe_yonetim_sistemi.jwt.JwtService;
@@ -78,16 +81,12 @@ public class AuthServiceImpl implements IAuthService{
                 return new AuthResponse(accessToken, dbRefreshToken.getRefreshToken());
             }
             else{
-                return null;
-            }
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Kullanıcı bulunamadı!"));
+        }
             
         } catch (AuthenticationException e) {
-            System.out.println("kullanıcı adı veya şifre hatalı"+e.getMessage());
+            throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, "Kullanıcı adı veya şifre hatalı!"));
         }
-
-
-
-        return null;
     }
 
 }
