@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Kuzeyden",
+    "image": "./images/favorites/kuzeyden.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺3.95",
+    "size": "1,5L"
+  },
+  {
+    "name": "Kızılay Erzincan",
+    "image": "./images/favorites/kizilay.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺7.75",
+    "size": "6 x 200 ml"
+  },
+  {
+    "name": "Ülker Napoliten",
+    "image": "./images/favorites/ulker.jpeg",
+    "oldPrice": "₺5,50",
+    "currentPrice": "₺4,40",
+    "size": "33 g"
+  },
+  {
+    "name": "Lay's Mevsim Yeşillikli",
+    "image": "./images/favorites/lays.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺8,95",
+    "size": "96 g"
+  },
+  {
+    "name": "Kavrulmuş Siyah Ay Çekirdeği",
+    "image": "./images/favorites/tadim.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺9,85",
+    "size": "180 g"
+  },
+  {
+    "name": "Magnum Badem",
+    "image": "./images/favorites/magnum.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺11,50",
+    "size": "100 ml"
+  },
+  {
+    "name": "Uno Tost Ekmeği",
+    "image": "./images/favorites/uno.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺10,95",
+    "size": "350 g"
+  },
+  {
+    "name": "İçim %3 Yağlı Süt",
+    "image": "./images/favorites/icim.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺12,95",
+    "size": "1 L"
+  },  
+  {
+    "name": "Bahçıvan Süzme Peynir",
+    "image": "./images/favorites/bahcivan.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺30,95",
+    "size": "500 g"
+  },
+  {
+    "name": "Hertane Kuru Sele Zeytin",
+    "image": "./images/favorites/hertane.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺39,90",
+    "size": "285 g"
+  },
+  {
+    "name": "Nuh'un Ankara Spaghetti",
+    "image": "./images/favorites/nuhun.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺7,50",
+    "size": "500 g"
+  },
+  {
+    "name": "Colgate Optik White",
+    "image": "./images/favorites/colgate.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺39,90",
+    "size": "75 ml"
+  },
+  {
+    "name": "Elidor Güçlü ve Parlak Şampuan",
+    "image": "./images/favorites/elidor.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺37,50",
+    "size": "650 ml"
+  },
+  {
+    "name": "Solo Tuvalet Kağıdı",
+    "image": "./images/favorites/solo.jpeg",
+    "oldPrice": "₺67,90",
+    "currentPrice": "₺55,90",
+    "size": "16'lı"
+  },
+  {
+    "name": "Yumoş Extra Orkide Yasemin",
+    "image": "./images/favorites/yumos.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺39,99",
+    "size": "1440 ml"
+  },
+  {
+    "name": "Domestos Dağ Esintisi",
+    "image": "./images/favorites/domestos.jpeg",
+    "oldPrice": "",
+    "currentPrice": "₺14,75",
+    "size": "750 ml"
+  }
+]

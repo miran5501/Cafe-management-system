@@ -1,0 +1,78 @@
+[
+  {
+    "name": "New Products",
+    "image": "./images/categories/new.jpeg"
+  },
+  {
+    "name": "Special Offers",
+    "image": "./images/categories/special.jpeg"
+  },
+  {
+    "name": "Beverages",
+    "image": "./images/categories/beverage.jpeg"
+  },
+  {
+    "name": "Fruits & Veg",
+    "image": "./images/categories/fruits.jpeg"
+  },
+  {
+    "name": "Baked Goods",
+    "image": "./images/categories/baked.jpeg"
+  },
+  {
+    "name": "Food",
+    "image": "./images/categories/food.jpeg"
+  },
+  {
+    "name": "Snacks",
+    "image": "./images/categories/snacks.jpeg"
+  },
+  {
+    "name": "Ice Cream",
+    "image": "./images/categories/icecream.jpeg"
+  },
+  {
+    "name": "Milk & Dairy",
+    "image": "./images/categories/milk.jpeg"
+  },
+  {
+    "name": "Breakfast",
+    "image": "./images/categories/breakfast.jpeg"
+  },
+  {
+    "name": "Ready to Eat",
+    "image": "./images/categories/ready.jpeg"
+  },
+  {
+    "name": "Fit & Form",
+    "image": "./images/categories/form.jpeg"
+  },
+  {
+    "name": "Personal Care",
+    "image": "./images/categories/percare.jpeg"
+  },
+  {
+    "name": "Home Care",
+    "image": "./images/categories/homecare.jpeg"
+  },
+  {
+    "name": "Home & Living",
+    "image": "./images/categories/homeliving.jpeg"
+  },
+  {
+    "name": "Tech",
+    "image": "./images/categories/tech.jpeg"
+  },
+  {
+    "name": "Pet Food",
+    "image": "./images/categories/pet.jpeg"
+  },
+  {
+    "name": "Baby Care",
+    "image": "./images/categories/baby.jpeg"
+  },
+  {
+    "name": "Sex Health",
+    "image": "./images/categories/sex.jpeg"
+  }
+]

@@ -1,0 +1,571 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\GirisYap.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Giris_Kayit\\GirisYap.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|c:\\users\\miran\\desktop\\yedek\\admin_web\\e_ticaret\\admin\\masaekle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:e_ticaret\\admin\\masaekle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Yapilmadan\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:E_ticaret\\Giris_Yapilmadan\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Yapilmadan\\utilities.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:E_ticaret\\Giris_Yapilmadan\\utilities.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Siparis_Detay.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Siparis_Detay.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Siparis_Detay.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Siparis_Detay.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Gecmis_Siparisler.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\MasaEkle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\GirisYap.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Giris_Kayit\\GirisYap.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Kategori_Ekle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Kategori_Ekle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Gecmis_Siparisler.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\MasaEkle.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Kategori_Ekle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Kategori_Ekle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\UrunEkle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\UrunEkle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Admin_paneli.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Admin_paneli.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Admin_paneli.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Admin_paneli.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AdminAnaSayfa.Master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\AdminAnaSayfa.Master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\UrunEkle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\UrunEkle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\Kayit_ol.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Giris_Kayit\\Kayit_ol.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\Kayit_ol.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Giris_Kayit\\Kayit_ol.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AlanEkle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\AlanEkle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urun_Guncelle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Urun_Guncelle.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urunleri_Yonet.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Urunleri_Yonet.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Gecmis_Siparisler.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urun_Guncelle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Urun_Guncelle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AlanEkle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\AlanEkle.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urunleri_Yonet.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\Urunleri_Yonet.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\CSS\\AdminSayfasi.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\CSS\\AdminSayfasi.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\JS\\AdminScript.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\JS\\AdminScript.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AdminAnaSayfa.Master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\Admin\\AdminAnaSayfa.Master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\WebForm2.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\WebForm2.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\WebForm2.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\WebForm2.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\CSS\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{6F066C6E-3B62-4EFE-B274-0CAD2DFB7B60}|E_ticaret\\Admin_web.csproj|solutionrelative:E_ticaret\\CSS\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Siparis_Detay.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Siparis_Detay.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Siparis_Detay.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Siparis_Detay.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Siparis_Detay.aspx.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:17:01.21Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Siparis_Detay.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Siparis_Detay.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Siparis_Detay.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Siparis_Detay.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\Siparis_Detay.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-01T08:35:04.958Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Gecmis_Siparisler.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Gecmis_Siparisler.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Gecmis_Siparisler.aspx.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAgwEMAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T00:38:08.404Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MasaEkle.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\MasaEkle.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\MasaEkle.aspx.cs",
+              "ViewState": "AQIAAIcAAAAAAAAAAAAhwIkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T15:00:47.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GirisYap.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\GirisYap.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Giris_Kayit\\GirisYap.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\GirisYap.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Giris_Kayit\\GirisYap.aspx.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAGAAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T12:35:44.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MasaEkle.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\MasaEkle.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\MasaEkle.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-16T15:00:43.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Kategori_Ekle.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Kategori_Ekle.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Kategori_Ekle.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Kategori_Ekle.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\Kategori_Ekle.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-01T11:37:53.929Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GirisYap.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\GirisYap.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Giris_Kayit\\GirisYap.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\GirisYap.aspx",
+              "RelativeToolTip": "E_ticaret\\Giris_Kayit\\GirisYap.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-06T12:35:16.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Gecmis_Siparisler.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Gecmis_Siparisler.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\Gecmis_Siparisler.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-16T00:38:49.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MasaEkle.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx.designer.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\MasaEkle.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\MasaEkle.aspx.designer.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\MasaEkle.aspx.designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T22:35:39.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Kategori_Ekle.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Kategori_Ekle.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Kategori_Ekle.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Kategori_Ekle.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Kategori_Ekle.aspx.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAjwKkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:35:37.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UrunEkle.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\UrunEkle.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\UrunEkle.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\UrunEkle.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\UrunEkle.aspx.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwDgAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T13:59:51.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Admin_paneli.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Admin_paneli.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Admin_paneli.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Admin_paneli.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Admin_paneli.aspx.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAD4vzcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T10:51:22.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Admin_paneli.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Admin_paneli.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Admin_paneli.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Admin_paneli.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\Admin_paneli.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-16T07:46:47.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AdminAnaSayfa.Master",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AdminAnaSayfa.Master",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\AdminAnaSayfa.Master",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AdminAnaSayfa.Master",
+              "RelativeToolTip": "E_ticaret\\Admin\\AdminAnaSayfa.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-06T07:57:20.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UrunEkle.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\UrunEkle.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\UrunEkle.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\UrunEkle.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\UrunEkle.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-16T13:54:06.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Kayit_ol.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\Kayit_ol.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Giris_Kayit\\Kayit_ol.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\Kayit_ol.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Giris_Kayit\\Kayit_ol.aspx.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAawCcAAACJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T09:42:25.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Kayit_ol.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\Kayit_ol.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Giris_Kayit\\Kayit_ol.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Kayit\\Kayit_ol.aspx",
+              "RelativeToolTip": "E_ticaret\\Giris_Kayit\\Kayit_ol.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-05T09:42:23.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "AlanEkle.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AlanEkle.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\AlanEkle.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AlanEkle.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\AlanEkle.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-16T15:23:57.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Urun_Guncelle.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urun_Guncelle.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Urun_Guncelle.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urun_Guncelle.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\Urun_Guncelle.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-01T11:30:28.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Urunleri_Yonet.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urunleri_Yonet.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Urunleri_Yonet.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urunleri_Yonet.aspx",
+              "RelativeToolTip": "E_ticaret\\Admin\\Urunleri_Yonet.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-02T15:55:43.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Gecmis_Siparisler.aspx.designer.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx.designer.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Gecmis_Siparisler.aspx.designer.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Gecmis_Siparisler.aspx.designer.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Gecmis_Siparisler.aspx.designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T19:07:10.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Urun_Guncelle.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urun_Guncelle.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Urun_Guncelle.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urun_Guncelle.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Urun_Guncelle.aspx.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAArwEgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T08:08:07.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AlanEkle.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AlanEkle.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\AlanEkle.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AlanEkle.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\AlanEkle.aspx.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAQwC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T15:25:56.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Urunleri_Yonet.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urunleri_Yonet.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\Urunleri_Yonet.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\Urunleri_Yonet.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\Urunleri_Yonet.aspx.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAIA6wDEAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T08:08:27.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Web.config",
+              "RelativeDocumentMoniker": "E_ticaret\\Web.config",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Web.config",
+              "RelativeToolTip": "E_ticaret\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-16T00:48:45.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AdminSayfasi.css",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\CSS\\AdminSayfasi.css",
+              "RelativeDocumentMoniker": "E_ticaret\\CSS\\AdminSayfasi.css",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\CSS\\AdminSayfasi.css",
+              "RelativeToolTip": "E_ticaret\\CSS\\AdminSayfasi.css",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAAOEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-01T08:11:32.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AdminScript.js",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\JS\\AdminScript.js",
+              "RelativeDocumentMoniker": "E_ticaret\\JS\\AdminScript.js",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\JS\\AdminScript.js",
+              "RelativeToolTip": "E_ticaret\\JS\\AdminScript.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-01T11:12:08.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AdminAnaSayfa.Master.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AdminAnaSayfa.Master.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\Admin\\AdminAnaSayfa.Master.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Admin\\AdminAnaSayfa.Master.cs",
+              "RelativeToolTip": "E_ticaret\\Admin\\AdminAnaSayfa.Master.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T10:51:02.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "WebForm2.aspx",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\WebForm2.aspx",
+              "RelativeDocumentMoniker": "E_ticaret\\WebForm2.aspx",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\WebForm2.aspx",
+              "RelativeToolTip": "E_ticaret\\WebForm2.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-08-06T11:56:03.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "WebForm2.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\WebForm2.aspx.cs",
+              "RelativeDocumentMoniker": "E_ticaret\\WebForm2.aspx.cs",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\WebForm2.aspx.cs",
+              "RelativeToolTip": "E_ticaret\\WebForm2.aspx.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAwBEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T11:58:13.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "bootstrap.min.css",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\CSS\\bootstrap.min.css",
+              "RelativeDocumentMoniker": "E_ticaret\\CSS\\bootstrap.min.css",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\CSS\\bootstrap.min.css",
+              "RelativeToolTip": "E_ticaret\\CSS\\bootstrap.min.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-06T10:34:08.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "styles.css",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Yapilmadan\\styles.css",
+              "RelativeDocumentMoniker": "E_ticaret\\Giris_Yapilmadan\\styles.css",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Yapilmadan\\styles.css",
+              "RelativeToolTip": "E_ticaret\\Giris_Yapilmadan\\styles.css",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAAAEsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-06T05:41:56.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "utilities.css",
+              "DocumentMoniker": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Yapilmadan\\utilities.css",
+              "RelativeDocumentMoniker": "E_ticaret\\Giris_Yapilmadan\\utilities.css",
+              "ToolTip": "C:\\Users\\miran\\Desktop\\YEDEK\\Admin_web\\E_ticaret\\Giris_Yapilmadan\\utilities.css",
+              "RelativeToolTip": "E_ticaret\\Giris_Yapilmadan\\utilities.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-06T06:08:28.01Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
