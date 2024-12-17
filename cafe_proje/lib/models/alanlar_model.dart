@@ -25,14 +25,15 @@ class MasaModel {
   String? masaAdi;
   bool? masaDurumu;
   List<MasaIcerikModel>? masaIcerikList;
+  Decimal? toplamTutar;
 
-  MasaModel({
-    this.id,
-    this.alanId,
-    this.masaAdi,
-    this.masaDurumu,
-    this.masaIcerikList,
-  });
+  MasaModel(
+      {this.id,
+      this.alanId,
+      this.masaAdi,
+      this.masaDurumu,
+      this.masaIcerikList,
+      this.toplamTutar});
 
   // JSON'dan model oluşturma
   MasaModel.fromJson(Map<String, dynamic> json) {
@@ -48,6 +49,9 @@ class MasaModel {
         masaIcerikList!.add(MasaIcerikModel.fromJson(v));
       });
     }
+    toplamTutar = json['toplamTutar'] != null
+        ? Decimal.parse(json['toplamTutar'].toString())
+        : null; // JSON'dan Decimal'e dönüştürme
   }
 
   // Modeli JSON'a dönüştürme
@@ -62,6 +66,7 @@ class MasaModel {
     if (masaIcerikList != null) {
       data['masaIcerikList'] = masaIcerikList!.map((v) => v.toJson()).toList();
     }
+    data['toplamTutar'] = toplamTutar?.toString();
     return data;
   }
 }
@@ -139,8 +144,15 @@ class UrunlerModel {
   Decimal? fiyat; // `fiyat` alanını Decimal türüne dönüştürmek
   int? stok;
   String? kategoriId;
+  String? resim;
 
-  UrunlerModel({this.id, this.urunAdi, this.fiyat, this.stok, this.kategoriId});
+  UrunlerModel(
+      {this.id,
+      this.urunAdi,
+      this.fiyat,
+      this.stok,
+      this.kategoriId,
+      this.resim});
 
   // JSON'dan model oluşturma
   UrunlerModel.fromJson(Map<String, dynamic> json) {
@@ -151,6 +163,7 @@ class UrunlerModel {
         : null; // JSON'dan Decimal'e dönüştürme
     stok = json['stok'];
     kategoriId = json['kategoriId'];
+    resim = json['resim'];
   }
 
   // Modeli JSON'a dönüştürme
@@ -161,6 +174,7 @@ class UrunlerModel {
     data['fiyat'] = fiyat?.toString(); // Decimal'i String'e dönüştürme
     data['stok'] = stok;
     data['kategoriId'] = kategoriId;
+    data['resim'] = resim;
     return data;
   }
 }

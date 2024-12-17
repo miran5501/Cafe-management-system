@@ -1,24 +1,15 @@
-const String url = "https://5150-188-58-98-140.ngrok-free.app/";
-const String urlAlanlar =
-    "https://5150-188-58-98-140.ngrok-free.app/api/alan/getir";
-const String urlMasa = "https://5150-188-58-98-140.ngrok-free.app/api/alan/";
-const String urlKategori =
-    "https://5150-188-58-98-140.ngrok-free.app/api/kategori/getir";
-const String urlUrun =
-    "https://5150-188-58-98-140.ngrok-free.app/api/urun/getir/";
+const String url = "http://192.168.196.123:8080/";
+const String urlAlanlar = "http://192.168.196.123:8080/api/alan/getir";
+const String urlMasa = "http://192.168.196.123:8080/api/alan/";
+const String urlKategori = "http://192.168.196.123:8080/api/kategori/getir";
+const String urlUrun = "http://192.168.196.123:8080/api/urun/getir-kategori/";
 const String urlMasaUrunEkle =
-    "https://5150-188-58-98-140.ngrok-free.app/api/masa/urun-ekle/";
-const String urlTumMasalar =
-    "https://5150-188-58-98-140.ngrok-free.app/api/masa/getir";
-const String urlMasaById =
-    "https://5150-188-58-98-140.ngrok-free.app/api/masa/getir/";
-const String urlTumUrunler =
-    "https://5150-188-58-98-140.ngrok-free.app/api/urun/getir";
-const String urlmasaKapat =
-    "https://5150-188-58-98-140.ngrok-free.app/api/masa/bosalt/";
-const String urlmasaDoldur =
-    "https://5150-188-58-98-140.ngrok-free.app/api/masa/doldur/";
+    "http://192.168.196.123:8080/api/masa/urun-ekle/";
+const String urlTumMasalar = "http://192.168.196.123:8080/api/masa/getir";
+const String urlMasaById = "http://192.168.196.123:8080/api/masa/getir/";
+const String urlTumUrunler = "http://192.168.196.123:8080/api/urun/getir";
+const String urlmasaKapat = "http://192.168.196.123:8080/api/masa/bosalt/";
+const String urlmasaDoldur = "http://192.168.196.123:8080/api/masa/doldur/";
 const String urlMasaIcerikSil =
-    "https://5150-188-58-98-140.ngrok-free.app/api/masa/urun-ode/";
-const String urlGiris =
-    "https://5150-188-58-98-140.ngrok-free.app/authenticate";
+    "http://192.168.196.123:8080/api/masa/urun-ode/";
+const String urlGiris = "http://192.168.196.123:8080/authenticate";

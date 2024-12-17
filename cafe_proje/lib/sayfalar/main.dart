@@ -1,4 +1,3 @@
-import 'package:cafe_proje/models/alanlar_model.dart';
 import 'package:flutter/material.dart';
 import 'package:cafe_proje/sayfalar/sabit_alan.dart';
 import 'package:cafe_proje/sayfalar/masalar.dart';

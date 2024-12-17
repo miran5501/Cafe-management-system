@@ -163,11 +163,13 @@ class ApiService {
       print("Başarılı: ${response.body}");
       return MasaModel.fromJson(json.decode(response.body));
     } else {
-      String decodedBody = _decodeResponseBody(response.body);
-      Map<String, dynamic> errorResponse = jsonDecode(decodedBody);
-      ApiError error = ApiError.fromJson(errorResponse);
-
-      throw Exception(error.message);
+      // Gelen cevaptaki hatayı parse et
+      var responseBody =
+          utf8.decode(response.bodyBytes); // UTF-8 ile decode ediyoruz
+      var parsedResponse = json.decode(responseBody); // JSON'u çözümle
+      var errorMessage = parsedResponse['exception']?['message'] ??
+          'Bilinmeyen bir hata oluştu'; // Hata mesajını alıyoruz
+      throw Exception(errorMessage); // Hata mesajını fırlatıyoruz
     }
   }
 
@@ -197,7 +199,7 @@ class ApiService {
     }
   }
 
-  Future<void> kapatMasa(
+  Future<MasaModel> kapatMasa(
       {required TokenModel token, required String masaId}) async {
     String? accessToken = token.accessToken;
     final headers = {
@@ -208,7 +210,9 @@ class ApiService {
         await http.put(Uri.parse(urlmasaKapat + masaId), headers: headers);
 
     if (response.statusCode == 200) {
-      // Başarılı işlem
+      String decodedBody = _decodeResponseBody(response.body);
+      final Map<String, dynamic> responseJson = jsonDecode(decodedBody);
+      return MasaModel.fromJson(responseJson);
     } else {
       // Gelen cevaptaki hatayı parse et
       var responseBody =
@@ -221,7 +225,7 @@ class ApiService {
   }
 
   // Masa Doldurma
-  Future<void> MasaDoldur(
+  Future<MasaModel> MasaDoldur(
       {required TokenModel token, required String masaId}) async {
     String? accessToken = token.accessToken;
     final headers = {
@@ -231,6 +235,9 @@ class ApiService {
     final response =
         await http.put(Uri.parse(urlmasaDoldur + masaId), headers: headers);
     if (response.statusCode == 200) {
+      String decodedBody = _decodeResponseBody(response.body);
+      final Map<String, dynamic> responseJson = jsonDecode(decodedBody);
+      return MasaModel.fromJson(responseJson);
     } else {
       throw Exception('API Hatası: ${response.statusCode}');
     }
@@ -267,28 +274,27 @@ class ApiService {
   Future<TokenModel> postGirisYap(String username, String password) async {
     final url = Uri.parse(urlGiris);
 
-    try {
-      final response = await http.post(
-        url,
-        headers: <String, String>{
-          "Content-Type": "application/json",
-        },
-        body: jsonEncode({
-          "username": username,
-          "password": password,
-        }),
-      );
+    final response = await http.post(
+      url,
+      headers: <String, String>{
+        "Content-Type": "application/json",
+      },
+      body: jsonEncode({
+        "username": username,
+        "password": password,
+      }),
+    );
 
-      if (response.statusCode == 200) {
-        print("Başarılı: ${response.body}");
-        return TokenModel.fromJson(json.decode(response.body));
-      } else {
-        print("Hata: ${response.body}");
-        throw Exception('API Hatası: ${response.statusCode}');
-      }
-    } catch (e) {
-      print("Bir hata oluştu: $e");
-      throw Exception('Bağlantı hatası: $e');
+    if (response.statusCode == 200) {
+      print("Başarılı: ${response.body}");
+      return TokenModel.fromJson(json.decode(response.body));
+    } else {
+      var responseBody =
+          utf8.decode(response.bodyBytes); // UTF-8 ile decode ediyoruz
+      var parsedResponse = json.decode(responseBody); // JSON'u çözümle
+      var errorMessage = parsedResponse['exception']?['message'] ??
+          'Bilinmeyen bir hata oluştu'; // Hata mesajını alıyoruz
+      throw Exception(errorMessage);
     }
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const koyuArkaPlan = Color(0xFF3B1E54);
 const acikArkaPlan = Color(0XFFEEEEEE);
-const acikMor = Color(0xFFF5EFFF);
+const acikMor = Color.fromARGB(255, 203, 184, 233);
 const gri = Colors.grey;
 
 //genel padding renkleri buraya tanımla

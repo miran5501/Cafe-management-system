@@ -150,11 +150,14 @@ class _KategoriState extends State<MasaSayfasi> {
                           color: Color(0XFFEEEEEE),
                           padding: const EdgeInsets.only(top: 28.0, bottom: 0),
                           child: Islemler(
-                              masaId: widget.masaId, masaDurumu: masaDurumu)),
+                            masaId: widget.masaId,
+                            masaDurumu: masaDurumu,
+                            updateMasaCallback: updateMasa,
+                          )),
                     ),
                     widget.masaId.isNotEmpty
                         ? Expanded(
-                            flex: 4,
+                            flex: 5,
                             child: Container(
                               height: deviceHeight,
                               color: Color(0XFFEEEEEE),
@@ -165,13 +168,16 @@ class _KategoriState extends State<MasaSayfasi> {
                                 masaId: widget.masaId,
                                 alanId: widget.alanId,
                                 masadeneme: masa,
+                                updateMasaCallback: updateMasa,
                               ),
                             ),
                           )
                         : SizedBox.shrink(),
                     Expanded(
-                      flex: 7,
+                      flex: 8,
                       child: Container(
+                        margin: EdgeInsets.only(left: 15, right: 15),
+                        padding: const EdgeInsets.only(top: 28.0, bottom: 0),
                         height: deviceHeight,
                         color: Color(0XFFEEEEEE),
                         child: Urunler(

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cafe_proje/models/alanlar_model.dart';
 import 'package:cafe_proje/models/global.dart';
 import 'package:cafe_proje/services/api_service.dart';
@@ -8,11 +10,13 @@ class UrunMasa extends StatefulWidget {
   final MasaModel masadeneme;
   final String masaId;
   final String alanId;
+  final Function(MasaModel) updateMasaCallback; // Callback
   const UrunMasa(
       {super.key,
       required this.masaId,
       required this.alanId,
-      required this.masadeneme});
+      required this.masadeneme,
+      required this.updateMasaCallback});
 
   @override
   State<UrunMasa> createState() => _UrunMasaState();
@@ -21,7 +25,7 @@ class UrunMasa extends StatefulWidget {
 class _UrunMasaState extends State<UrunMasa> {
   ApiService apiService = ApiService();
 
-  Decimal toplamFiyat = Decimal.zero;
+  Decimal anlikTutar = Decimal.zero;
   late MasaModel masa;
   late List<MasaIcerikModel> masaIcerikList;
   late List<int> urunSayaclari;
@@ -41,20 +45,6 @@ class _UrunMasaState extends State<UrunMasa> {
     masaIcerikList = masa.masaIcerikList ?? [];
     urunSayaclari = List.generate(masaIcerikList.length,
         (index) => masa.masaIcerikList![index].urunAdet ?? 1);
-    _calculateTotalPrice();
-  }
-
-  void _calculateTotalPrice() {
-    Decimal total = Decimal.zero;
-
-    for (var icerik in masaIcerikList) {
-      UrunlerModel urun = (icerik.urun != null) ? icerik.urun! : UrunlerModel();
-      total += urun.fiyat! * Decimal.fromInt(icerik.urunAdet ?? 0);
-    }
-
-    setState(() {
-      toplamFiyat = total;
-    });
   }
 
   List<MasaIcerikModel> get filteredMasaIcerikList {
@@ -84,7 +74,7 @@ class _UrunMasaState extends State<UrunMasa> {
                 ),
                 color: Colors.white,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Row(
                       children: [
@@ -102,7 +92,7 @@ class _UrunMasaState extends State<UrunMasa> {
                                 !showPaid ? Colors.white : Colors.black,
                           ),
                           child: Text("Ödenmeyenler",
-                              style: TextStyle(fontSize: 16)),
+                              style: TextStyle(fontSize: 14)),
                         ),
                         TextButton(
                           onPressed: () {
@@ -118,15 +108,16 @@ class _UrunMasaState extends State<UrunMasa> {
                                 showPaid ? Colors.white : Colors.black,
                           ),
                           child:
-                              Text("Ödenenler", style: TextStyle(fontSize: 16)),
+                              Text("Ödenenler", style: TextStyle(fontSize: 14)),
                         ),
                         SizedBox(width: 10),
                         Container(
+                          padding: EdgeInsets.all(8),
                           alignment: Alignment.center,
-                          height: 50,
+                          height: 40,
                           decoration: BoxDecoration(
                             color: Colors.pinkAccent,
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -139,6 +130,7 @@ class _UrunMasaState extends State<UrunMasa> {
                           child: Text(
                             masa.masaAdi ?? "-",
                             style: const TextStyle(
+                              fontSize: 18,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
@@ -158,6 +150,15 @@ class _UrunMasaState extends State<UrunMasa> {
                       MasaIcerikModel icerik = filteredMasaIcerikList[index];
                       UrunlerModel urun =
                           (icerik.urun != null) ? icerik.urun! : UrunlerModel();
+                      String urunadi;
+                      try {
+                        // UTF-8 çözümlemesi yapılabiliyorsa uygula
+                        urunadi = utf8.decode(urun.urunAdi!.codeUnits,
+                            allowMalformed: false);
+                      } catch (e) {
+                        // Hata oluşursa zaten çözülmüş olduğu anlamına gelir
+                        urunadi = urun.urunAdi!;
+                      }
 
                       return Column(
                         children: [
@@ -171,11 +172,25 @@ class _UrunMasaState extends State<UrunMasa> {
                                 masaiceriksil?.urunAdet = icerik.urunAdet;
                                 if (masaIcerikSilList.contains(masaiceriksil) ||
                                     selectedIndexes.contains(index)) {
+                                  final urun = masaiceriksil!.urun;
+                                  final urunAdet = masaiceriksil?.urunAdet;
+
+                                  if (urun != null && urunAdet != null) {
+                                    anlikTutar -=
+                                        urun.fiyat! * Decimal.fromInt(urunAdet);
+                                  }
+
                                   masaIcerikSilList.remove(masaiceriksil);
                                   selectedIndexes.remove(index);
                                 } else {
+                                  final urun = masaiceriksil!.urun;
+                                  final urunAdet = masaiceriksil?.urunAdet;
                                   masaIcerikSilList.add(masaiceriksil!);
                                   selectedIndexes.add(index);
+                                  if (urun != null && urunAdet != null) {
+                                    anlikTutar +=
+                                        urun.fiyat! * Decimal.fromInt(urunAdet);
+                                  }
                                 }
                               });
                             },
@@ -195,19 +210,23 @@ class _UrunMasaState extends State<UrunMasa> {
                                     ? Colors.grey[300] // Ödenmişse gri renk
                                     : (selectedIndexes.contains(
                                             index) // Seçili satır mı kontrolü
-                                        ? Colors
-                                            .blue[100] // Seçili satırın rengi
+                                        ? const Color.fromARGB(255, 216, 199,
+                                            241) // Seçili satırın rengi
                                         : Colors
                                             .white), // Diğer satırların rengi
-
-                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: Row(
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start, // Metinleri sola hizala
-
+                                    mainAxisAlignment: adetSayaclari
+                                                .containsKey(index) &&
+                                            adetSayaclari[index]! > 0
+                                        ? MainAxisAlignment
+                                            .spaceBetween // Eğer alttaki text varsa
+                                        : MainAxisAlignment
+                                            .center, // Eğer alttaki text yoksa ortala
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start, // Sola hizala
                                     children: [
                                       Text(
                                         " ${icerik.urunAdet}x",
@@ -217,34 +236,52 @@ class _UrunMasaState extends State<UrunMasa> {
                                           fontWeight: FontWeight.w700,
                                         ),
                                       ),
-                                      if (adetSayaclari.containsKey(index) &&
-                                          adetSayaclari[index]! > 0)
-                                        Text(
-                                          "-${adetSayaclari[index]}x",
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.grey,
-                                            fontStyle: FontStyle.italic,
-                                          ),
-                                        ),
+                                      adetSayaclari.containsKey(index) &&
+                                              adetSayaclari[index]! > 0
+                                          ? Text(
+                                              "-${adetSayaclari[index]}x",
+                                              style: const TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.grey,
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                            )
+                                          : const SizedBox
+                                              .shrink(), // Eğer koşul sağlanmazsa boş widget
                                     ],
                                   ),
                                   const SizedBox(width: 15),
                                   Text(
-                                    urun.urunAdi ?? "Ürün Bilinmiyor",
+                                    urunadi,
                                     style: const TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.w600,
                                         color: Color.fromARGB(198, 0, 0, 0)),
                                   ),
                                   const Spacer(),
-                                  Text(
-                                    "₺${(((urun.fiyat as Decimal).toDouble()) * ((icerik.urunAdet as int))).toStringAsFixed(2)}",
-                                    style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromARGB(181, 0, 0, 0),
-                                    ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        "₺${(((urun.fiyat as Decimal).toDouble()) * ((icerik.urunAdet as int))).toStringAsFixed(2)}",
+                                        style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color.fromARGB(181, 0, 0, 0),
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "${icerik.urunEklenmeTarihi?.add(const Duration(hours: 3)).hour}:${icerik.urunEklenmeTarihi?.add(const Duration(hours: 3)).minute.toString().padLeft(2, '0')}",
+                                          ),
+                                          icerik.odenmeDurumu != null &&
+                                                  icerik.odenmeDurumu!
+                                              ? Text(
+                                                  " / ${icerik.urunKaldirilmaTarihi?.add(const Duration(hours: 3)).hour}:${icerik.urunKaldirilmaTarihi?.add(const Duration(hours: 3)).minute.toString().padLeft(2, '0')}")
+                                              : const SizedBox.shrink(),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
@@ -300,12 +337,66 @@ class _UrunMasaState extends State<UrunMasa> {
                                               selectedIndexes.contains(index)) {
                                             masaIcerikSilList
                                                 .remove(masaiceriksil);
+                                            final urun = masaiceriksil!.urun;
+                                            final urunAdet =
+                                                masaiceriksil?.urunAdet;
+
+                                            if (urun != null &&
+                                                urunAdet != null) {
+                                              anlikTutar -= urun.fiyat! *
+                                                  Decimal.fromInt(urunAdet);
+                                            }
+
                                             selectedIndexes.remove(index);
                                           } else {
                                             masaIcerikSilList
                                                 .add(masaiceriksil!);
+                                            final urun = masaiceriksil!.urun;
+                                            final urunAdet =
+                                                masaiceriksil?.urunAdet;
+
+                                            if (urun != null &&
+                                                urunAdet != null) {
+                                              anlikTutar += urun.fiyat! *
+                                                  Decimal.fromInt(urunAdet);
+                                            }
                                             selectedIndexes.add(index);
                                           } // Null ise 1 olarak ayarla
+                                        } else {
+                                          masaiceriksil = MasaIcerikSil();
+                                          masaiceriksil?.id = icerik.id;
+                                          masaiceriksil?.urun = icerik.urun;
+                                          masaiceriksil?.urunAdet =
+                                              adetSayaclari[index];
+                                          if (masaIcerikSilList
+                                                  .contains(masaiceriksil) ||
+                                              selectedIndexes.contains(index)) {
+                                            masaIcerikSilList
+                                                .remove(masaiceriksil);
+                                            final urun = masaiceriksil!.urun;
+                                            final urunAdet =
+                                                masaiceriksil?.urunAdet;
+
+                                            if (urun != null &&
+                                                urunAdet != null) {
+                                              anlikTutar -= urun.fiyat! *
+                                                  Decimal.fromInt(urunAdet);
+                                            }
+                                            selectedIndexes.remove(index);
+                                          } else {
+                                            masaIcerikSilList
+                                                .add(masaiceriksil!);
+                                            final urun = masaiceriksil!.urun;
+                                            final urunAdet =
+                                                masaiceriksil?.urunAdet;
+
+                                            if (urun != null &&
+                                                urunAdet != null) {
+                                              anlikTutar += urun.fiyat! *
+                                                  Decimal.fromInt(urunAdet);
+                                            }
+                                            selectedIndexes.add(index);
+                                          } // Null ise 1 olarak ayarlas
                                         }
                                       });
                                     },
@@ -332,11 +423,14 @@ class _UrunMasaState extends State<UrunMasa> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
-                      onPressed: () {
-                        apiService.putMasaIcerikOde(
-                            token: globalToken!,
-                            model: masaIcerikSilList,
-                            id: widget.masaId);
+                      onPressed: () async {
+                        MasaModel updatedMasa =
+                            await apiService.putMasaIcerikOde(
+                                token: globalToken!,
+                                model: masaIcerikSilList,
+                                id: widget.masaId);
+
+                        widget.updateMasaCallback(updatedMasa);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
@@ -355,9 +449,17 @@ class _UrunMasaState extends State<UrunMasa> {
                       ),
                     ),
                     Text(
-                      "₺${toplamFiyat.toStringAsFixed(2)}",
+                      "₺${anlikTutar.toStringAsFixed(2) ?? '0.00'}", // 2 basamaklı gösterim
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 96, 95, 96),
+                      ),
+                    ),
+                    Text(
+                      "₺${masa.toplamTutar?.toStringAsFixed(2) ?? '0.00'}",
+                      style: const TextStyle(
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                         color: Colors.purple,
                       ),
@@ -373,11 +475,9 @@ class _UrunMasaState extends State<UrunMasa> {
   }
 
   Divider divider() {
-    return Divider(
+    return const Divider(
       color: Colors.grey,
       thickness: 2,
-      indent: 10,
-      endIndent: 10,
     );
   }
 }

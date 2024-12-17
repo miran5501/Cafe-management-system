@@ -97,17 +97,52 @@ class _GirisState extends State<Giris> {
                         const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () async {
-                            TokenModel token = await apiService.postGirisYap(
-                                kullaniciAdiController.text,
-                                sifreController.text);
-                            // Token'i global değişkene ata
-                            globalToken = token;
+                            try {
+                              TokenModel token = await apiService.postGirisYap(
+                                  kullaniciAdiController.text,
+                                  sifreController.text);
+                              // Token'i global değişkene ata
+                              globalToken = token;
 
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomeScreen()),
-                            );
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()),
+                              );
+                            } catch (e) {
+                              // Hata olduğunda bir AlertDialog ile mesaj göster
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Hata!',
+                                        style: TextStyle(
+                                            color: Colors.red,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.bold)),
+                                    content: Text(
+                                      e
+                                          .toString()
+                                          .replaceFirst('Exception: ', ''),
+                                      style: TextStyle(
+                                          fontSize:
+                                              20), // "Exception: " kısmını temizle
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text(
+                                          'Tamam',
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.purple,
